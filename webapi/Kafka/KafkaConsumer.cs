@@ -2,7 +2,6 @@ namespace webapi.Kafka;
 
 public class KafkaConsumer : IConsumer<KafkaMessage>
 {
-   
     public Task Consume(ConsumeContext<KafkaMessage> context)
     {
         var message = context.Message;

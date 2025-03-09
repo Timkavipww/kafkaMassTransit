@@ -6,18 +6,8 @@ namespace webapi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class OrderController : ControllerBase
+public class OrderController(ITopicProducer<string, KafkaMessage> _producer) : ControllerBase
 {
-    private readonly ITopicProducer<string, KafkaMessage> _producer;
-    private readonly IConsumer<KafkaMessage> _consumer;
-
-     
-    public OrderController(ITopicProducer<string, KafkaMessage> producer)
-    {
-        _producer = producer;
-    }
-
-
     [HttpPost("send")]
     public async Task<IActionResult> SendMessage([FromBody] KafkaMessage message, CancellationToken cts)
     {
