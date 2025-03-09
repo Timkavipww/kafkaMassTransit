@@ -1,2 +1,7 @@
 .vscode
 *.sln
+./*/bin/
+./*/obj/
+./*/*.csproj
+./*/Properties/launchSettings.json
+./*/*.json
